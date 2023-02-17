@@ -14,6 +14,8 @@ public class App02HelloWorldSpring {
 		//name - @Bean
 		
 		//3: Retrieving Beans managed by Spring
+		
+		//We are using name to retrieve a bean
 		System.out.println(context.getBean("name"));
 		
 		System.out.println(context.getBean("age"));
@@ -21,7 +23,12 @@ public class App02HelloWorldSpring {
 		System.out.println(context.getBean("person"));
 		
 		System.out.println(context.getBean("address"));
+		System.out.println(context.getBean("person2MethodCall"));
+		System.out.println(context.getBean("person3Parameters"));
 		
+		//Using type to retrieve a bean
+		System.out.println(context.getBean(Address.class));
+				
 	}
 
 }
