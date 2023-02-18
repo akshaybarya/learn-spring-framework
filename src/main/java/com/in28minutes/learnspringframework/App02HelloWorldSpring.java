@@ -32,8 +32,9 @@ public class App02HelloWorldSpring {
 		//Using type to retrieve a bean
 		System.out.println(context.getBean(Address.class));
 		
+		System.out.println(context.getBean("person5Qualifier"));
 		//List all the beans managed by spring framework
-		Arrays.stream(context.getBeanDefinitionNames()).forEach(System.out::println);;
+//		Arrays.stream(context.getBeanDefinitionNames()).forEach(System.out::println);;
 	}
 
 }

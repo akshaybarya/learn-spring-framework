@@ -1,7 +1,9 @@
 package com.in28minutes.learnspringframework;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 //Eliminate verbosity in creating Java Beans
 //Public accessor methods, constructor
@@ -41,9 +43,27 @@ public class HelloWorldConfiguration {
 		return new Person(name, age, address);
 	}
 	
+	// If I want to use a Qualifier
+	@Bean
+	public Person person5Qualifier(String name, int age, @Qualifier("addressQualifier") Address address) {
+		return new Person(name, age, address);
+	}
+	
 	@Bean
 	public Address address() {
 		return new Address("5/k", "Mungaoli");
+	}
+	
+	@Bean
+	@Qualifier("addressQualifier")
+	public Address address6() {
+		return new Address("E-882", "Kota");
+	}
+	
+	@Bean(name = "address3")
+	@Primary
+	public Address address2() {
+		return new Address("69", "Bengaluru");
 	}
 	
 //	If you want to customize the name of bean you can pass @Bean(name = "address2")
