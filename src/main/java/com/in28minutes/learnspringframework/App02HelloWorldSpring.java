@@ -1,11 +1,14 @@
 package com.in28minutes.learnspringframework;
 
+import java.util.Arrays;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class App02HelloWorldSpring {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 	//  1: Launch a Spring Context
+		
 		
 		var context = new AnnotationConfigApplicationContext(HelloWorldConfiguration.class);
 		
@@ -28,7 +31,9 @@ public class App02HelloWorldSpring {
 		
 		//Using type to retrieve a bean
 		System.out.println(context.getBean(Address.class));
-				
+		
+		//List all the beans managed by spring framework
+		Arrays.stream(context.getBeanDefinitionNames()).forEach(System.out::println);;
 	}
 
 }
